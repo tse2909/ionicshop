@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>  
+		<ion-icon name="menu"  left></ion-icon>
+		</button>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+  <ion-searchbar></ion-searchbar>
+</ion-header>
+<ion-content padding>
+  <!--<h2>Welcome to Ionic!</h2>-->
+  <!--<ion-card>
+    <ion-card-header>
+      
+    </ion-card-header>
+    <ion-card-content *ngFor="let k of data">
+       {{k.product_name}}
+    </ion-card-content>
+  </ion-card>-->
+  <ion-list>
+    <h2>Your recommendations</h2>
+    <ion-item *ngFor="let k of data | slice:0:5; let i=index">
+      <ion-thumbnail item-left>
+        <img src="{{k.image}}">
+      </ion-thumbnail>
+      <h2 style="font-weight: 800">{{k.product_name}}</h2>
+      <p style="color:grey">by Hamilton Beach</p>
+      <p style="color: darkred; font-weight: 600">Rp.{{k.price}}</p>
+      <p style="color:grey">FREE Shipping on eligible orders</p>
+      <!--<button ion-button clear item-right>View</button>-->
+    </ion-item>
+  </ion-list>
+  <ion-card *ngFor="let k of data">
+    <ion-thumbnail item-left>
+      <img src="{{k.image}}">
+    </ion-thumbnail>
+    <ion-card-content item-left>
+      <ion-card-title>
+        {{k.product_name}}
+      </ion-card-title>
+      <p>
+      </p>
+    </ion-card-content>
+    <button ion-button>Default</button>
+  </ion-card>
+  <p>
+    This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
+  </p>
+  <p>
+    Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
+  </p>
+</ion-content>
