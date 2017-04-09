@@ -1,3 +1,33 @@
 page-product-detail {
 
 }
+ion-card img {
+    width: 100%;
+}
+
+.card-title-ios{
+  font-weight: 900;
+  font-size: 1.8rem;
+  padding: 2px 0 0px 0;
+}
+
+.card-title-md{
+  font-weight: 900;
+  font-size: 1.8rem;
+  padding: 2px 0 0px 0;
+  }
+ion-fab{
+    width: 110%;
+}
+
+ion-fab[center]{
+    left:0;
+}
+  .fab{
+      border-radius: 0;
+      width: 100%;
+  }
+
+  ion-fab[bottom]{
+      bottom:0px;
+  }

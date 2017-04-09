@@ -27,7 +27,7 @@
     </ion-row>-->
     <ion-row>
         <ion-col width-50 *ngFor="let k of product">
-            <ion-card>
+            <ion-card (click)="gotoDetails(k)">
               <img style="width:100%" src="{{k.images[0].src}}"/>
               <ion-card-content>
                 <ion-card-title>

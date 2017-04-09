@@ -7,6 +7,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MainPage } from '../pages/main/main';
+import { ProductDetailPage } from '../pages/product-detail/product-detail';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProductService } from '../providers/product-service';
@@ -17,7 +18,8 @@ import { ProductService } from '../providers/product-service';
     ContactPage,
     HomePage,
     TabsPage,
-    MainPage
+    MainPage,
+    ProductDetailPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -30,7 +32,8 @@ import { ProductService } from '../providers/product-service';
     ContactPage,
     HomePage,
     TabsPage,
-    MainPage
+    MainPage,
+    ProductDetailPage
   ],
   providers: [
     ProductService,
