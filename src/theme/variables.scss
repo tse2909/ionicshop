@@ -30,10 +30,14 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222
 );
-$toolbar-background: #000080;
+$toolbar-background: #000;
 
 $searchbar-ios-padding-horizontal:20px;
-$searchbar-ios-background-color:#000080;
+$searchbar-ios-background-color:#000;
+$card-ios-title-text-color: #000;
+$card-md-title-text-color: #000;
+
+// $background-color: grey;
 // $content-ios-outer-background: #000;
 // App iOS Variables
 // --------------------------------------------------
