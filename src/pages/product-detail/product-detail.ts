@@ -13,6 +13,7 @@ import { NavController, NavParams, App } from 'ionic-angular';
 })
 export class ProductDetailPage {
   public product;
+  qty: number = 1;
   constructor(public navCtrl: NavController, public navParams: NavParams, private app: App) {
     this.product = this.navParams.get('product');
     console.log(this.product);

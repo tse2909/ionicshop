@@ -1,5 +1,19 @@
 page-home {
+.swiper-slide{
+  width: 40% !important;
+  background: white;
+}
 
+.swiper-container {
+  height: 70%;
+}
+.card-ios, .card-md{
+  width: calc(100% - 8px);
+}
+
+ion-slides{
+  height: 60%;
+}
 }
 
 ion-card img {

@@ -66,6 +66,22 @@
       <!--<button ion-button clear item-right>View</button>-->
     </ion-item>
   </ion-list>
+
+  <h3>ON SALE PRODUCTS</h3>
+  <ion-slides pager loop slidesPerView="1">
+    
+  <ion-slide *ngFor="let k of product">
+    <ion-card>
+      <div style="height:150px; padding: auto">
+      <img style="widht:100%" src="https://pbs.twimg.com/profile_images/774297805116407808/NhxKlL4B.jpg" alt="">    
+      </div>
+      <ion-card-content>
+        ON SALE
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+</ion-slides>
+
   <ion-card *ngFor="let k of data">
     <ion-thumbnail item-left>
       <img src="{{k.image}}">
@@ -85,5 +101,5 @@
   <p>
     Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
   </p>
-
+<button ion-button (click)="add()"></button>
 </ion-content>

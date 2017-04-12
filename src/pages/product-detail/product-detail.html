@@ -8,6 +8,9 @@
 
   <ion-navbar>
     <ion-title>{{product.name}}</ion-title>
+      <button ion-button icon-only start menuToggle right>
+            <ion-icon name="cart"></ion-icon>
+          </button>
   </ion-navbar>
 
 </ion-header>
@@ -15,28 +18,43 @@
 
 <ion-content padding>
 
-<ion-card>
-  <img src="{{product.images[0].src}}"/>
-  <ion-card-content>
-    <ion-card-title>
-      {{product.categories[0].name}}
-    </ion-card-title>
-    <p>{{product.name}}</p>
-    <strong><p>Rp {{product.price| number}}</p></strong>
-    <br>
-    <ion-card-title>  
-    Product Info
-    </ion-card-title>
+  <ion-card>
+    <img src="{{product.images[0].src}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{product.categories[0].name}}
+      </ion-card-title>
+      <p>{{product.name}}</p>
+      <strong><p>Rp {{product.price| number}}</p></strong>
+      <br>
+      <ion-card-title>
+        Product Info
+      </ion-card-title>
 
-    <div [innerHtml]="product.description"></div>
-  </ion-card-content>
-</ion-card>
+      <div [innerHtml]="product.description"></div>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 <!--<button (click)="newContact()" fab fab-bottom fab-right fab-fixed>
     <ion-icon name="add"></ion-icon>
 </button>-->
 
- <ion-fab center bottom>
-   <button ion-fab>BUY NOW</button>
- </ion-fab>
+
+
+
+
+<ion-fab center bottom>
+  <ion-item>
+  <ion-select [(ngModel)]="qty">
+    <!--<ion-label>1</ion-label>-->
+    <ion-option>1</ion-option>
+    <ion-option>2</ion-option>
+    <ion-option>3</ion-option>
+    <ion-option>4</ion-option>
+    <ion-option>5</ion-option>
+    <ion-option>6</ion-option>
+  </ion-select>
+</ion-item>
+  <button ion-fab>BUY NOW</button>
+</ion-fab>
