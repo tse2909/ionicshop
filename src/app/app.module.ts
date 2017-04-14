@@ -14,6 +14,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProductService } from '../providers/product-service';
 import { PostService } from '../providers/post-service';
+import { ProductItemComponent } from '../components/product-item/product-item';
+import { ProductListComponent } from '../components/product-list/product-list';
+import { CartListComponent } from '../components/cart-list/cart-list';
+import { CartPage } from '../pages/cart/cart';
+
+import { cartReducer }  from '../reducers/cart';
+import { productsReducer } from '../reducers/products';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ShopEffects} from '../effects/shop';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,13 +37,25 @@ import { PostService } from '../providers/post-service';
     MainPage,
     BeautyfeedPage,
     ProductDetailPage,
-    BeautyfeedDetailPage
+    BeautyfeedDetailPage,
+    CartPage,
+    ProductListComponent,
+    ProductItemComponent,
+    CartListComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
       backButtonText: '',
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    StoreModule.provideStore({
+        cart: cartReducer,
+        products: productsReducer,
+    }),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 5
+    }),
+    EffectsModule.run(ShopEffects)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +67,8 @@ import { PostService } from '../providers/post-service';
     BeautyfeedPage,
     MainPage,
     ProductDetailPage,
-    BeautyfeedDetailPage
+    BeautyfeedDetailPage,
+    CartPage
   ],
   providers: [
     ProductService,

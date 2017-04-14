@@ -13,37 +13,15 @@
   <ion-searchbar></ion-searchbar>
 </ion-header>
 <ion-content padding>
-<div *ngIf="product" >
-  <!--{{slides.images.src}}-->
-  <!--<div *ngFor="let k of images" ></div>
-  {{k}}
-   </div>-->
-       <!--<ion-row>
-        <ion-col>
-            <h4 class="name">John Smith</h4>
-            <p class="twittername">@johnsmith</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ultrices quam, at interdum ante.</p>
-        </ion-col>
-    </ion-row>-->
-    <ion-row>
-        <ion-col width-50 *ngFor="let k of product">
-            <ion-card (click)="gotoDetails(k)">
-              <img style="width:100%" src="{{k.images[0].src}}"/>
-              <ion-card-content>
-                <ion-card-title>
-                  {{k.categories[0].name}}
-                </ion-card-title>
-                <p>
-                  {{k.name}}
-                </p>
-                <p style="color:#cf000f; font-weight:900">Rp {{k.price| number}}</p>
-              </ion-card-content>
-            </ion-card>
-        </ion-col>
-    </ion-row>
-   
-   <!--{{images.toString()}}-->
-   </div>
+<product-list [products]= "(products | async)" (gotoDetails)="gotoDetails($event)">  
+</product-list>  
+
+  <!--<div *ngIf="products">
+    <div *ngFor="let p of products | async">
+     {{p.id}} 
+    </div>
+  </div>-->
+
   <!--<h2>Welcome to Ionic!</h2>-->
   <!--<ion-card>
     <ion-card-header>
@@ -53,19 +31,7 @@
        {{k.product_name}}
     </ion-card-content>
   </ion-card>-->
-  <ion-list>
-    <h2>Your recommendations</h2>
-    <ion-item *ngFor="let k of data | slice:0:5; let i=index">
-      <ion-thumbnail item-left>
-        <img src="{{k.image}}">
-      </ion-thumbnail>
-      <h2 style="font-weight: 800">{{k.product_name}}</h2>
-      <p style="color:grey">by Hamilton Beach</p>
-      <p style="color: darkred; font-weight: 600">Rp.{{k.price}}</p>
-      <p style="color:grey">FREE Shipping on eligible orders</p>
-      <!--<button ion-button clear item-right>View</button>-->
-    </ion-item>
-  </ion-list>
+
 
   <h3>ON SALE PRODUCTS</h3>
   <ion-slides pager loop slidesPerView="1">
@@ -82,24 +48,4 @@
   </ion-slide>
 </ion-slides>
 
-  <ion-card *ngFor="let k of data">
-    <ion-thumbnail item-left>
-      <img src="{{k.image}}">
-    </ion-thumbnail>
-    <ion-card-content item-left>
-      <ion-card-title>
-        {{k.product_name}}
-      </ion-card-title>
-      <p>
-      </p>
-    </ion-card-content>
-    <button ion-button>Default</button>
-  </ion-card>
-  <p>
-    This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
-  </p>
-<button ion-button (click)="add()"></button>
 </ion-content>

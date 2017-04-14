@@ -1,0 +1,46 @@
+cart-list {
+    ion-card{
+        position: relative
+    }
+
+    ion-card .close{
+        float:right;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    ion-card img{
+        width:100%;
+    }
+    .sideimage{
+        float:left;
+        width:40%;
+        margin-top: 10px;
+    }
+
+    .card-md{
+        margin: 5px 0 0 0;
+        width: 100%;
+    }
+
+    .card-header-md{
+        padding:0;
+        padding-top: 12px;
+        font-size: 1.3rem;
+        font-weight: 800;
+    }
+
+    .item-md{
+        width:60%;
+        padding: 0;
+        font-size: 1.4rem;
+
+    }
+    .card-content-md{
+        font-size:1.2rem;
+    }
+
+    .item-block{
+        margin-top: -20px;
+    }
+}

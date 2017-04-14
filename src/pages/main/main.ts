@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { BeautyfeedPage } from '../beautyfeed/beautyfeed';
+import { CartPage } from '../cart/cart';
 /*
   Generated class for the Main page.
 
@@ -21,6 +22,7 @@ export class MainPage {
   private contactPage;
   private rootPage;
   private beautyPage;
+  private cartPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
@@ -29,6 +31,7 @@ export class MainPage {
     this.homePage = HomePage;
     this.contactPage = ContactPage;
     this.beautyPage = BeautyfeedPage
+    this.cartPage = CartPage;
   }
 
   ionViewDidLoad() {
