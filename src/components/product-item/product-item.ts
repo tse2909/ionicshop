@@ -11,7 +11,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: 'product-item.html'
 })
 export class ProductItemComponent {
-  @Input() product;
+  @Input() productDetail;
   text: string;
   
   @Output()
@@ -20,6 +20,12 @@ export class ProductItemComponent {
   constructor() {
     console.log('Hello ProductItem Component');
     this.text = 'Hello World';
+  }
+
+  ngOnInit(){
+      if(this.productDetail.quantity == 'null'){
+      this.productDetail.quantity = 1;
+    }
   }
 
 }

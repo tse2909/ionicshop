@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 import {getProducts, addToCart} from '../../actions/products';
-import {getProductsAsArry, getCalculatedCartList} from '../../reducers';
+import {getProductsAsArry, getCalculatedCartList, getProductWithCart} from '../../reducers';
 import { Subject } from 'rxjs';
 import {Store, Action} from '@ngrx/store';
 
@@ -17,12 +17,13 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'product-detail.html'
 })
 export class ProductDetailPage {
-
+  productDetail: any;
   cartList: any;
   products: Observable<any[]>;
   actions$ = new Subject<Action>();
   addToCartAction = addToCart;
   public product;
+  public productId;
   qty: number = 1;
   constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public store: Store<any>) {
     this.products = store.let(getProductsAsArry());
@@ -33,7 +34,11 @@ export class ProductDetailPage {
     this.actions$.next(getProducts());
 
     this.product = this.navParams.get('product');
+    this.productId = this.product.id;
+    console.log(this.productId);
     console.log(this.product);
+    this.productDetail = store.let(getProductWithCart(this.productId));
+    console.log(this.productDetail);
   }
 
   ionViewDidLoad() {

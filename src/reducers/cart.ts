@@ -17,13 +17,13 @@ const initialState: CartState = {
 export function cartReducer(state = initialState, action: Action): CartState {
     switch (action.type) {
         case ADD_TO_CART:
-            if (state.productIds.indexOf(action.payload) !== -1) {
+            if (state.productIds.indexOf(action.payload.id) !== -1) {
                 return Object.assign({},
                     state,
                     {
                         quantityById:
                         Object.assign({}, state.quantityById,
-                            { [action.payload]: (state.quantityById[action.payload] || 0) + 1 }
+                            { [action.payload.id]: (state.quantityById[action.payload.id] || 0) + Number(action.payload.quantity) }
                         )
                     }
                 );
@@ -31,10 +31,10 @@ export function cartReducer(state = initialState, action: Action): CartState {
             return Object.assign({},
                 state,
                 {
-                    productIds: [...state.productIds, action.payload],
+                    productIds: [...state.productIds, action.payload.id],
                     quantityById:
                     Object.assign({}, state.quantityById,
-                        { [action.payload]: (state.quantityById[action.payload] || 0) + 1 }
+                        { [action.payload.id]: (state.quantityById[action.payload.id] || 0) + + Number(action.payload.quantity)}
                     )
                 }
             );

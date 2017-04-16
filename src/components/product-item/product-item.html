@@ -10,19 +10,19 @@
 
 
   <ion-card>
-    <img src="{{product.images[0].src}}" />
+    <img src="{{productDetail.image}}" />
     <ion-card-content>
       <ion-card-title>
-        {{product.categories[0].name}}
+        {{productDetail.category}}
       </ion-card-title>
-      <p>{{product.name}}</p>
-      <strong><p>Rp {{product.price| number}}</p></strong>
+      <p>{{productDetail.name}}</p>
+      <strong><p>Rp {{productDetail.price| number}}</p></strong>
       <br>
       <ion-card-title>
         Product Info
       </ion-card-title>
 
-      <div [innerHtml]="product.description"></div>
+      <div [innerHtml]="productDetail.description"></div>
     </ion-card-content>
   </ion-card>
 
@@ -32,7 +32,7 @@
 
 <ion-fab center bottom>
   <ion-item>
-  <ion-select [(ngModel)]="qty">
+  <ion-select [(ngModel)]="productDetail.quantity">
     <!--<ion-label>1</ion-label>-->
     <ion-option>1</ion-option>
     <ion-option>2</ion-option>
@@ -42,5 +42,5 @@
     <ion-option>6</ion-option>
   </ion-select>
 </ion-item>
-  <button ion-fab (click)="addToCart.emit(product)">BUY NOW</button>
+  <button ion-fab (click)="addToCart.emit(productDetail)">BUY NOW</button>
 </ion-fab>

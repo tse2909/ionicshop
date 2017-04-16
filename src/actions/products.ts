@@ -7,5 +7,5 @@ export const getProducts = () => {
 }
 
 export const addToCart = (product) => {
-    return <Action>{ type: ADD_TO_CART, payload: product.id };
+    return <Action>{ type: ADD_TO_CART, payload: product };
 }

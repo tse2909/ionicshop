@@ -23,5 +23,5 @@
     <ion-icon name="add"></ion-icon>
 </button>-->
 
-<product-item [product]="product" (addToCart)="actions$.next(addToCartAction($event))"></product-item>
+<product-item [productDetail]="(productDetail | async)" (addToCart)="actions$.next(addToCartAction($event))"></product-item>
 

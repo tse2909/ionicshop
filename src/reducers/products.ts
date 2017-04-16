@@ -14,6 +14,7 @@ export interface IProduct {
     title: string;
     price: number;
     inventory: number;
+    cart: number
 }
 
 export interface ProductsState {
@@ -40,9 +41,10 @@ export function productsReducer(state = initialState, action: Action) {
         case ADD_TO_CART:
             return {
                 entities: Object.assign({}, state.entities, {
-                    [action.payload]: Object.assign({}, state.entities[action.payload], {
-                        inventory: state.entities[action.payload].inventory - 1
-                    })
+                    [action.payload.id]: Object.assign({}, state.entities[action.payload.id]
+                    // , {inventory: state.entities[action.payload].inventory - 1}
+                    // , {cart: state.entities[action.payload].cart? state.entities[action.payload].cart : 0 + 1}
+                    )
                 })
             };
         default:
