@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class PostService {
-  url = 'http://localhost/beautyshop/wp-json/wp/v2/posts';
+  url = 'http://hostingtrial.esy.es/wp-json/wp/v2/posts';
   constructor(public http: Http) {
    
   }

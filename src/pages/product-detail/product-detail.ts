@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 import {getProducts, addToCart} from '../../actions/products';
 import {getProductsAsArry, getCalculatedCartList, getProductWithCart} from '../../reducers';
@@ -17,6 +17,7 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'product-detail.html'
 })
 export class ProductDetailPage {
+  public wobbleState: string;
   productDetail: any;
   cartList: any;
   products: Observable<any[]>;
@@ -40,6 +41,7 @@ export class ProductDetailPage {
     this.productDetail = store.let(getProductWithCart(this.productId));
     console.log(this.productDetail);
   }
+  
 
   ionViewDidLoad() {
     this.app.setTitle(this.product.name);

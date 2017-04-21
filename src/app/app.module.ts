@@ -14,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProductService } from '../providers/product-service';
 import { PostService } from '../providers/post-service';
+import { CartButtonComponent } from '../components/cart-button/cart-button';
 import { ProductItemComponent } from '../components/product-item/product-item';
 import { ProductListComponent } from '../components/product-list/product-list';
 import { CartListComponent } from '../components/cart-list/cart-list';
@@ -41,7 +42,8 @@ import { ShopEffects} from '../effects/shop';
     CartPage,
     ProductListComponent,
     ProductItemComponent,
-    CartListComponent
+    CartListComponent,
+    CartButtonComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, {

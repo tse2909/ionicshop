@@ -4,35 +4,141 @@
   See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
   for more info on Angular 2 Components.
 -->
+<div class="banner">
+  <ion-card>
 
-<div *ngIf="products" >
+    <ion-slides pager loop slidesPerView="1">
+      <ion-slide>
+        <img src="https://previews.123rf.com/images/kannaa123rf/kannaa123rf1511/kannaa123rf151100073/47422069-Make-up-flat-icons-Square-composition-banners-Vector-illustration-for-cosmetic-design-Beauty-style-i-Stock-Vector.jpg"
+          alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="https://previews.123rf.com/images/kannaa123rf/kannaa123rf1511/kannaa123rf151100073/47422069-Make-up-flat-icons-Square-composition-banners-Vector-illustration-for-cosmetic-design-Beauty-style-i-Stock-Vector.jpg"
+          alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+      </ion-slide>
+
+    </ion-slides>
+  </ion-card>
+</div>
+
+<div class="special-banner">
+
+
+  <ion-slides slidesPerView="2.5">
+
+    <ion-slide>
+      <ion-card>
+        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+        <ion-card-content>
+          <ion-card-title>
+            NEW & NOW
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+        <ion-card-content>
+          <ion-card-title>
+            SILK 50
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+        <ion-card-content>
+          <ion-card-title>
+            SALE
+          </ion-card-title>
+        </ion-card-content>      
+      </ion-card>
+    </ion-slide>
+
+
+  </ion-slides>
+
+</div>
+
+
+<div *ngIf="products">
+
+
+  <div class="slide-product">
+    <ion-card>
+      <div class="title">NEW PRODUCTS</div>
+      <div class="title-right">see all</div>
+      <ion-slides pager slidesPerView="2.2">
+        <ion-slide *ngFor="let k of products" (click)="gotoDetails.emit(k)">
+          <div style="padding: auto">
+            <img style="width:100%" src="{{k.images[0].src}}" alt="">
+          </div>
+          <ion-card-content>
+            <ion-card-title>
+              {{k.categories[0].name}}
+            </ion-card-title>
+            {{k.name}}
+            <p style="color:#cf000f; font-weight:900">Rp {{k.price| number}}</p>
+          </ion-card-content>
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
+  </div>
+
+  <div class="slide-product">
+    <ion-card>
+      <div class="title">HOT PRODUCTS</div>
+      <div class="title-right">see all</div>
+      <ion-slides pager slidesPerView="2.2">
+        <ion-slide *ngFor="let k of products" (click)="gotoDetails.emit(k)">
+          <div style="padding: auto">
+            <img style="widht:100%" src="{{k.images[0].src}}" alt="">
+          </div>
+          <ion-card-content>
+            <ion-card-title>
+              {{k.categories[0].name}}
+            </ion-card-title>
+            {{k.name}}
+            <p style="color:#cf000f; font-weight:900">Rp {{k.price| number}}</p>
+          </ion-card-content>
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
+  </div>
   <!--{{slides.images.src}}-->
   <!--<div *ngFor="let k of images" ></div>
   {{k}}
    </div>-->
-       <!--<ion-row>
+  <!--<ion-row>
         <ion-col>
             <h4 class="name">John Smith</h4>
             <p class="twittername">@johnsmith</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ultrices quam, at interdum ante.</p>
         </ion-col>
     </ion-row>-->
-    <ion-row>
-        <ion-col width-50 *ngFor="let k of products">
-            <ion-card (click)="gotoDetails.emit(k)">
-              <img style="width:100%" src="{{k.images[0].src}}"/>
-              <ion-card-content>
-                <ion-card-title>
-                  {{k.categories[0].name}}
-                </ion-card-title>
-                <p>
-                  {{k.name}}
-                </p>
-                <p style="color:#cf000f; font-weight:900">Rp {{k.price| number}}</p>
-              </ion-card-content>
-            </ion-card>
-        </ion-col>
-    </ion-row>
-   
-   <!--{{images.toString()}}-->
-   </div>
+  <!--<ion-row>
+    <ion-col width-50 *ngFor="let k of products">
+      <ion-card (click)="gotoDetails.emit(k)">
+        <img style="width:100%" src="{{k.images[0].src}}" />
+        <ion-card-content>
+          <ion-card-title>
+            {{k.categories[0].name}}
+          </ion-card-title>
+          <p>
+            {{k.name}}
+          </p>
+          <p style="color:#cf000f; font-weight:900">Rp {{k.price| number}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>-->
+
+  <!--{{images.toString()}}-->
+</div>

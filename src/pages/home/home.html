@@ -6,15 +6,13 @@
     <ion-title>
       SANDORA
     </ion-title>
-    <button ion-button icon-only start menuToggle right>
-            <ion-icon name="cart"></ion-icon>
-          </button>
+    <cart-button></cart-button>
   </ion-navbar>
   <ion-searchbar></ion-searchbar>
 </ion-header>
 <ion-content padding>
-<product-list [products]= "(products | async)" (gotoDetails)="gotoDetails($event)">  
-</product-list>  
+  <product-list [products]="(products | async)" (gotoDetails)="gotoDetails($event)">
+  </product-list>
 
   <!--<div *ngIf="products">
     <div *ngFor="let p of products | async">
@@ -33,19 +31,6 @@
   </ion-card>-->
 
 
-  <h3>ON SALE PRODUCTS</h3>
-  <ion-slides pager loop slidesPerView="1">
-    
-  <ion-slide *ngFor="let k of product">
-    <ion-card>
-      <div style="height:150px; padding: auto">
-      <img style="widht:100%" src="https://pbs.twimg.com/profile_images/774297805116407808/NhxKlL4B.jpg" alt="">    
-      </div>
-      <ion-card-content>
-        ON SALE
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
-</ion-slides>
+  
 
 </ion-content>

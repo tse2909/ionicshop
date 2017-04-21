@@ -15,7 +15,7 @@ import { Observable } from 'rxjs/Observable';
 export class ProductService {
 
 
-  rooturl = "http://localhost:3000";
+  rooturl = "https://sandora-api.herokuapp.com";
 
   constructor(public http: Http) {
     console.log('Hello ImageService Provider');

@@ -19,4 +19,7 @@ export class CartListComponent {
     this.text = 'Hello World';
   }
 
+  ngOnInit(){
+    console.log(this.cart)
+  }
 }
