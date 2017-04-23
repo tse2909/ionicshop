@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {getProductsAsArry, getCalculatedCartList} from '../../reducers';
+import {getProductsAsArry, getCalculatedCartList, getCartState, getCartCnt} from '../../reducers';
 import { Store } from '@ngrx/store';
 /*
   Generated class for the Cart page.
@@ -14,9 +14,14 @@ import { Store } from '@ngrx/store';
 })
 export class CartPage {
   cart:any;
+
+
+  cartState: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private store:Store<any>) {
   this.cart = this.store.let(getCalculatedCartList());
+  this.cartState = this.store.let(getCartCnt());
   console.log(this.cart);
+  console.log(this.cartState);
   }
 
   ionViewDidLoad() {

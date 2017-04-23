@@ -21,5 +21,4 @@ export class ProductListComponent {
     console.log('Hello ProductList Component');
     this.text = 'Hello World';
   }
-
 }

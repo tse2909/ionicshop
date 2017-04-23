@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /*
   Generated class for the CartButton component.
@@ -11,12 +11,41 @@ import { Component } from '@angular/core';
   templateUrl: 'cart-button.html'
 })
 export class CartButtonComponent {
-
+  @Input() cart;
   text: string;
-
+  cartCount: number = 0;
   constructor() {
     console.log('Hello CartButton Component');
     this.text = 'Hello World';
   }
 
+
+  ngOnInit() {
+    console.log(this.cart);
+    if (this.cart == undefined) {
+      this.cartCount = 0;
+    } else {
+      this.cartCount = 0;
+      for (let i = 0; i < this.cart.length; i++) {
+        this.cartCount += Number(this.cart[i].quantity);
+
+      }
+    }
+
+
+  }
+
+   ngOnChanges() {
+    console.log(this.cart);
+    if (this.cart == undefined) {
+      this.cartCount = 0;
+    } else {
+      this.cartCount = 0;
+      for (let i = 0; i < this.cart.length; i++) {
+        this.cartCount += Number(this.cart[i].quantity);
+
+      }
+    }
+
+  }
 }

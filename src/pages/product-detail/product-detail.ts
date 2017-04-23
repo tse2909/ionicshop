@@ -19,7 +19,7 @@ import { Observable } from 'rxjs/Observable';
 export class ProductDetailPage {
   public wobbleState: string;
   productDetail: any;
-  cartList: any;
+  cart: any;
   products: Observable<any[]>;
   actions$ = new Subject<Action>();
   addToCartAction = addToCart;
@@ -29,7 +29,7 @@ export class ProductDetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public store: Store<any>) {
     this.products = store.let(getProductsAsArry());
     console.log(this.products);
-    this.cartList = store.let(getCalculatedCartList());
+    this.cart = store.let(getCalculatedCartList());
 
     this.actions$.subscribe(store);
     this.actions$.next(getProducts());
@@ -41,7 +41,11 @@ export class ProductDetailPage {
     this.productDetail = store.let(getProductWithCart(this.productId));
     console.log(this.productDetail);
   }
-  
+
+  addToCartOutput($event) {
+    this.actions$.next(this.addToCartAction($event));
+    this.cart = this.store.let(getCalculatedCartList());
+  }
 
   ionViewDidLoad() {
     this.app.setTitle(this.product.name);

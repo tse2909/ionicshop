@@ -1,3 +1,13 @@
+  .toolbar-title-ios{
+      font-size: 1.5rem;
+      font-weight: 400;
+  }
+
+    .toolbar-title-md{
+      font-size: 1.5rem !important;
+      font-weight: 400;
+  }
+
 product-item {
 
 ion-card img {
@@ -36,15 +46,7 @@ ion-fab[center]{
       bottom:-3px;
   }
 
-  .toolbar-title-ios{
-      font-size: 1.4rem;
-      font-weight: 400;
-  }
 
-    .toolbar-title-md{
-      font-size: 1.4rem !important;
-      font-weight: 400;
-  }
 
   .item-block{
       width:25%;
@@ -70,7 +72,8 @@ ion-card-content img{
 }
 
 .card-md {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    width: calc(100% - 0px);
+    margin: 52px 0px 62px 0px;
 }
 }

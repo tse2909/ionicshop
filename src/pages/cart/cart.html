@@ -12,10 +12,10 @@
     <ion-title>
       Cart
     </ion-title>
+    <cart-button [cart]="(cart|async)"></cart-button>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-<cart-list [cart]="(cart|async)"></cart-list>
-</ion-content>
+
+  <cart-list [cart]="(cart|async)" [cartState]="(cartState|async)"></cart-list>

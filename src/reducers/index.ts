@@ -52,6 +52,22 @@ export function getCalculatedCartList() {
     };
 }
 
+
+export function getCartCnt() {
+    return (state$: Observable<AppState>) => {
+        return state$.let(getCartState())
+                .map((cart: any) => {
+                    return cart.productIds.map(productId => {
+                        return {
+                            quantity: cart.quantityById[productId]
+
+                        };
+                    });
+                });
+    };
+}
+
+
 export function getProductWithCart(productId) {
     return (state$: Observable<AppState>) => {
         return Observable

@@ -7,7 +7,7 @@
 <div class="banner">
   <ion-card>
 
-    <ion-slides pager loop slidesPerView="1">
+    <ion-slides pager loop slidesPerView="1" autoplay="2000">
       <ion-slide>
         <img src="https://previews.123rf.com/images/kannaa123rf/kannaa123rf1511/kannaa123rf151100073/47422069-Make-up-flat-icons-Square-composition-banners-Vector-illustration-for-cosmetic-design-Beauty-style-i-Stock-Vector.jpg"
           alt="">
@@ -17,7 +17,8 @@
           alt="">
       </ion-slide>
       <ion-slide>
-        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+        <img src="https://previews.123rf.com/images/kannaa123rf/kannaa123rf1511/kannaa123rf151100073/47422069-Make-up-flat-icons-Square-composition-banners-Vector-illustration-for-cosmetic-design-Beauty-style-i-Stock-Vector.jpg"
+          alt="">
       </ion-slide>
 
     </ion-slides>
@@ -31,7 +32,7 @@
 
     <ion-slide>
       <ion-card>
-        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+        <img src="http://hostingtrial.esy.es/wp-content/uploads/2017/04/WK14_17_RemarkableBeauty_CB_ID_ae49520326a4c02580c99476170c8f5cf3a80341_1491150317-uai-516x537.jpg" alt="">
         <ion-card-content>
           <ion-card-title>
             NEW & NOW
@@ -42,7 +43,7 @@
 
     <ion-slide>
       <ion-card>
-        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+        <img src="http://hostingtrial.esy.es/wp-content/uploads/2017/04/WK14_17_BeautyOnABudget_CB_ID_3ca37f0083caf75ec19d8d2549b38dd82a8429f2_1491150460-uai-516x537.jpg" alt="">
         <ion-card-content>
           <ion-card-title>
             SILK 50
@@ -53,7 +54,7 @@
 
     <ion-slide>
       <ion-card>
-        <img src="https://0.s3.envato.com/files/179834411/jpg/336x280_Large_Rectangle.jpg" alt="">
+        <img src="http://hostingtrial.esy.es/wp-content/uploads/2017/04/WK14_17_AbsolutelyDivine_CB_ID_8a1b8b9ccbe87855d261ceb750abd62da17279de_1491150391-uai-516x537.jpg" alt="">
         <ion-card-content>
           <ion-card-title>
             SALE
@@ -77,14 +78,14 @@
       <div class="title-right">see all</div>
       <ion-slides pager slidesPerView="2.2">
         <ion-slide *ngFor="let k of products" (click)="gotoDetails.emit(k)">
-          <div style="padding: auto">
-            <img style="width:100%" src="{{k.images[0].src}}" alt="">
+          <div style="padding: auto; height:140px">
+            <img src="{{k.images[0].src}}" alt="">
           </div>
           <ion-card-content>
             <ion-card-title>
               {{k.categories[0].name}}
             </ion-card-title>
-            {{k.name}}
+            <p>{{k.name}}</p>
             <p style="color:#cf000f; font-weight:900">Rp {{k.price| number}}</p>
           </ion-card-content>
         </ion-slide>
@@ -98,14 +99,14 @@
       <div class="title-right">see all</div>
       <ion-slides pager slidesPerView="2.2">
         <ion-slide *ngFor="let k of products" (click)="gotoDetails.emit(k)">
-          <div style="padding: auto">
-            <img style="widht:100%" src="{{k.images[0].src}}" alt="">
+          <div style="padding: auto;height:140px ">
+            <img src="{{k.images[0].src}}" alt="">
           </div>
           <ion-card-content>
             <ion-card-title>
               {{k.categories[0].name}}
             </ion-card-title>
-            {{k.name}}
+            <p>{{k.name}}</p>
             <p style="color:#cf000f; font-weight:900">Rp {{k.price| number}}</p>
           </ion-card-content>
         </ion-slide>

@@ -12,14 +12,29 @@ import { Component, Input } from '@angular/core';
 })
 export class CartListComponent {
   @Input() cart;
+  @Input() cartState;
   text: string;
-  
+  cartCount: number= 0;
+  cartTotal: number= 0;
   constructor() {
-    console.log(this.cart);
+    
     this.text = 'Hello World';
   }
 
-  ngOnInit(){
-    console.log(this.cart)
+    ngOnInit() {
+    console.log(this.cart);
+    if (this.cart == undefined) {
+      this.cartCount = 0;
+    } else {
+      this.cartCount = 0;
+      this.cartTotal = 0;
+      for (let i = 0; i < this.cart.length; i++) {
+        this.cartCount += Number(this.cart[i].quantity);
+        this.cartTotal += this.cart[i].quantity*this.cart[i].price
+        console.log(this.cartTotal);
+    }
+    }
+
+
   }
 }
