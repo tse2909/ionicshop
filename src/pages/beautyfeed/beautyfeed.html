@@ -23,6 +23,8 @@
     <ion-card-title>
       {{p.title.rendered}}
     </ion-card-title>
+    <div class="date">{{p.date | date: 'MMM dd,yyyy'}}</div>
+    
     <!--<div [innerHtml]="p.content.rendered"></div>-->
   </ion-card-content>
 </ion-card>

@@ -41,6 +41,7 @@ export function getCalculatedCartList() {
                 .map(([cart, products]: any[]) => {
                     return cart.productIds.map(productId => {
                         return {
+                            id: productId,
                             title: products[productId].name,
                             brand: products[productId].categories[0].name,
                             image: products[productId].images[0].src,
@@ -66,6 +67,7 @@ export function getCartCnt() {
                 });
     };
 }
+
 
 
 export function getProductWithCart(productId) {

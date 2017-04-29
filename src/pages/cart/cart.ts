@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import {getProductsAsArry, getCalculatedCartList, getCartState, getCartCnt} from '../../reducers';
-import { Store } from '@ngrx/store';
+import {getProducts, addToCart, removeItem} from '../../actions/products';
+import { Subject } from 'rxjs';
+import {Store, Action} from '@ngrx/store';
+
 /*
   Generated class for the Cart page.
 
@@ -13,19 +16,34 @@ import { Store } from '@ngrx/store';
   templateUrl: 'cart.html'
 })
 export class CartPage {
-  cart:any;
-
+  cart: any;
+    actions$ = new Subject<Action>();
+  
 
   cartState: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private store:Store<any>) {
-  this.cart = this.store.let(getCalculatedCartList());
-  this.cartState = this.store.let(getCartCnt());
-  console.log(this.cart);
-  console.log(this.cartState);
+  constructor(public navCtrl: NavController, public navParams: NavParams, private store: Store<any>, public loadingCtrl: LoadingController) {
+    this.actions$.subscribe(store);
+    this.cart = this.store.let(getCalculatedCartList());
+    this.cartState = this.store.let(getCartCnt());
+    console.log(this.cart);
+    console.log(this.cartState);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
+  }
+  deleteItem($event) {
+    
+    
+    let loading = this.loadingCtrl.create({
+      content: 'Deleting item ...'
+    });
+    loading.present();
+    
+    setTimeout(() => {
+      this.actions$.next(removeItem($event));
+      this.cart = this.store.let(getCalculatedCartList());
+      loading.dismiss();
+    }, 1000);
   }
 
 }

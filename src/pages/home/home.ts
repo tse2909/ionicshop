@@ -7,6 +7,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import { ProductService } from '../../providers/product-service';
 import { ProductDetailPage } from '../product-detail/product-detail';
+import { ProductShowPage } from '../product-show/product-show';
 
 import {getProducts, addToCart} from '../../actions/products';
 import {getProductsAsArry, getCalculatedCartList} from '../../reducers';
@@ -20,7 +21,6 @@ import { Observable } from 'rxjs/Observable';
     templateUrl: 'home.html'
 })
 export class HomePage {
-
     cart: any;
     products: Observable<any[]>;
     actions$ = new Subject<Action>();
@@ -53,9 +53,7 @@ export class HomePage {
                 console.log("ERROR: ", error);
             });
         });
-
         
-        // this._productService.getProductEffect();
     }
     ionViewLoaded() {
         let loader = this.loading.create({
@@ -66,12 +64,18 @@ export class HomePage {
             loader.dismiss();
         });
     }
-            
+
     gotoDetails(product) {
         this.navCtrl.push(ProductDetailPage, { product })
     }
 
-
+    gotoProducts(filter){
+        let data = {
+            type : 'ALL',
+            filter: filter
+        }
+        this.navCtrl.push(ProductShowPage, {data})
+    }
     public refresh() {
         this.database.executeSql("SELECT * FROM people", []).then((data) => {
             this.people = [];

@@ -11,9 +11,71 @@
   <ion-searchbar></ion-searchbar>
 </ion-header>
 <ion-content padding>
-  <product-list [products]="(products | async)" (gotoDetails)="gotoDetails($event)">
-  </product-list>
 
+
+  
+<div class="banner">
+  <ion-card>
+    <ion-slides pager loop slidesPerView="1" autoplay="2000">
+      <ion-slide>
+        <img src="http://www.smartsaver.my/storage/upload/images/Ciate_Media_Banner_202_ac07cc4fcb9f3e03f2b3589155b7c07c1ddebfc4_1454306964.jpg"
+          alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="http://www.sephora.com/contentimages/editorial/trendingatsephora/2017/April/trend_cat_lp_banner_highlighting_main_banner_040417_image.jpg"
+          alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="https://s-media-cache-ak0.pinimg.com/736x/b1/48/c1/b148c11dcfe3ca7ebbf3ab46868abd6c.jpg" alt="">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+</div>
+
+<div class="special-banner">
+  <ion-slides slidesPerView="2.5">
+    <ion-slide>
+      <ion-card>
+        <img src="http://hostingtrial.esy.es/wp-content/uploads/2017/04/WK14_17_RemarkableBeauty_CB_ID_ae49520326a4c02580c99476170c8f5cf3a80341_1491150317-uai-516x537.jpg"
+          alt="">
+        <ion-card-content>
+          <ion-card-title>
+            NEW & NOW
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="http://hostingtrial.esy.es/wp-content/uploads/2017/04/WK14_17_BeautyOnABudget_CB_ID_3ca37f0083caf75ec19d8d2549b38dd82a8429f2_1491150460-uai-516x537.jpg"
+          alt="">
+        <ion-card-content>
+          <ion-card-title>
+            SILK 50
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="http://hostingtrial.esy.es/wp-content/uploads/2017/04/WK14_17_AbsolutelyDivine_CB_ID_8a1b8b9ccbe87855d261ceb750abd62da17279de_1491150391-uai-516x537.jpg"
+          alt="">
+        <ion-card-content>
+          <ion-card-title>
+            SALE
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>
+
+  <!--<product-list [products]="(products | async)" (gotoDetails)="gotoDetails($event)">
+  </product-list>-->
+  <product-slide [products]="(products | async)" title="NEW PRODUCT" filter="NEW" (gotoDetails)="gotoDetails($event)" (gotoProducts)="gotoProducts($event)"></product-slide>
+  <product-slide [products]="(products | async)" title="HOT PRODUCT" filter="HOT" (gotoDetails)="gotoDetails($event)" (gotoProducts)="gotoProducts($event)"></product-slide>
   <!--<div *ngIf="products">
     <div *ngFor="let p of products | async">
      {{p.id}} 

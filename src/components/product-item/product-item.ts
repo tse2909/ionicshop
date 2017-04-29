@@ -11,15 +11,23 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: 'product-item.html'
 })
 export class ProductItemComponent {
+  addtoCartData : {id: string, qty: number};
+
   @Input() productDetail;
   text: string;
   
   @Output()
   addToCart: EventEmitter<any> = new EventEmitter<any>();
 
+  quantities: number[] = [];
+  quantity: number = 1;
   constructor() {
     console.log('Hello ProductItem Component');
     this.text = 'Hello World';
+
+    for(let i = 1; i < 11; i ++){
+      this.quantities.push(i);
+    }
   }
 
   ngOnInit(){
@@ -27,5 +35,9 @@ export class ProductItemComponent {
       this.productDetail.quantity = 1;
     }
   }
-
+  
+  addtoCartClick(){
+    var data = {id:this.productDetail.id, quantity: this.quantity}
+    this.addToCart.emit(data);
+}
 }

@@ -16,10 +16,13 @@ import { ProductService } from '../providers/product-service';
 import { PostService } from '../providers/post-service';
 import { CartButtonComponent } from '../components/cart-button/cart-button';
 import { ProductItemComponent } from '../components/product-item/product-item';
-import { ProductListComponent } from '../components/product-list/product-list';
+import { ProductSlideComponent } from '../components/product-slide/product-slide';
 import { CartListComponent } from '../components/cart-list/cart-list';
 import { CartPage } from '../pages/cart/cart';
-
+import { BrandListComponent } from '../components/brand-list/brand-list';
+import { BrandPage } from '../pages/brand/brand';
+import { ProductShowPage } from '../pages/product-show/product-show';
+import { ProductShowComponent } from '../components/product-show/product-show';
 import { cartReducer }  from '../reducers/cart';
 import { productsReducer } from '../reducers/products';
 import { StoreModule } from '@ngrx/store';
@@ -40,10 +43,14 @@ import { ShopEffects} from '../effects/shop';
     ProductDetailPage,
     BeautyfeedDetailPage,
     CartPage,
-    ProductListComponent,
     ProductItemComponent,
     CartListComponent,
-    CartButtonComponent
+    CartButtonComponent,
+    BrandPage,
+    BrandListComponent,
+    ProductShowPage,
+    ProductShowComponent,
+    ProductSlideComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -70,7 +77,9 @@ import { ShopEffects} from '../effects/shop';
     MainPage,
     ProductDetailPage,
     BeautyfeedDetailPage,
-    CartPage
+    CartPage,
+    BrandPage,
+    ProductShowPage
   ],
   providers: [
     ProductService,

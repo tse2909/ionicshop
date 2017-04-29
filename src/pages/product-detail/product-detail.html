@@ -9,10 +9,10 @@
   <ion-navbar>
     <button ion-button menuToggle> <ion-icon name="menu"></ion-icon> </button>
     <ion-title>{{product.name}}</ion-title>
-      <!--<button ion-button icon-only start menuToggle right>
+    <!--<button ion-button icon-only start menuToggle right>
             <ion-icon name="cart"></ion-icon>
           </button>-->
-          <cart-button [cart]="(cart | async)"></cart-button>
+    <cart-button [cart]="(cart | async)"></cart-button>
 
 
   </ion-navbar>
@@ -27,4 +27,4 @@
     <ion-icon name="add"></ion-icon>
 </button>-->
 
-<product-item [productDetail]="(productDetail | async)" (addToCart)="addToCartOutput($event)" ></product-item>
+<product-item [productDetail]="(productDetail | async)" (addToCart)="addToCartOutput($event)"></product-item>

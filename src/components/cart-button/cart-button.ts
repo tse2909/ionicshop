@@ -35,7 +35,7 @@ export class CartButtonComponent {
 
   }
 
-   ngOnChanges() {
+  ngOnChanges() {
     console.log(this.cart);
     if (this.cart == undefined) {
       this.cartCount = 0;

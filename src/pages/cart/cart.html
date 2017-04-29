@@ -18,4 +18,4 @@
 
 
 
-  <cart-list [cart]="(cart|async)" [cartState]="(cartState|async)"></cart-list>
+<cart-list [cart]="(cart|async)" [cartState]="(cartState|async)" (deleteItem)="deleteItem($event)"></cart-list>

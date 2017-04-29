@@ -2,22 +2,32 @@
 
     <ion-content>
         <ion-list>
-             <button ion-item menuClose (click)="openPage(homePage)">
+            <button ion-item menuClose (click)="openPage(homePage)">
                 Home
             </button>
+            
             <button ion-item menuClose (click)="openPage(beautyPage)">
                 Beautyfeed
             </button>
             <button ion-item menuClose (click)="openPage(cartPage)">
                 Cart
             </button>
-            <button ion-item menuClose (click)="openPage(aboutPage)">
-                About
+            <button ion-item menuClose (click)="openPage(brandPage)">
+                Brands
             </button>
+             <ion-list id="sidenav">
+                <!-- other menu items will go here -->
+                <ion-item (click)="menuItemHandler()">Skin Care +</ion-item>
+                <ion-item submenu-item *ngIf="showSubmenu" menuClose (click)="openProduct('Toner')">Toner</ion-item>
+                <ion-item submenu-item *ngIf="showSubmenu" menuClose (click)="openProduct('Moisturizer')">Moisturizer</ion-item>
+                <ion-item submenu-item *ngIf="showSubmenu" menuClose (click)="openProduct('Sun Block')">Sun Block</ion-item>
+                <!-- other menu items will go here -->
+            </ion-list>
+        </ion-list>
             <button ion-item menuClose (click)="openPage(contactPage)">
                 Contact
             </button>
-        </ion-list>
+           
     </ion-content>
 
 </ion-menu>

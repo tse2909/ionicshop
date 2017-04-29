@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NavController, NavParams, App } from 'ionic-angular';
+import { NavController, NavParams, App, LoadingController, ToastController  } from 'ionic-angular';
 import {getProducts, addToCart} from '../../actions/products';
 import {getProductsAsArry, getCalculatedCartList, getProductWithCart} from '../../reducers';
 import { Subject } from 'rxjs';
@@ -26,7 +26,7 @@ export class ProductDetailPage {
   public product;
   public productId;
   qty: number = 1;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public store: Store<any>) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public store: Store<any>, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
     this.products = store.let(getProductsAsArry());
     console.log(this.products);
     this.cart = store.let(getCalculatedCartList());
@@ -43,8 +43,23 @@ export class ProductDetailPage {
   }
 
   addToCartOutput($event) {
-    this.actions$.next(this.addToCartAction($event));
-    this.cart = this.store.let(getCalculatedCartList());
+    let loading = this.loadingCtrl.create({
+      content: 'Add to cart...'
+    });
+    loading.present();
+    setTimeout(() => {
+      loading.dismiss();
+
+      this.actions$.next(this.addToCartAction($event));
+      this.cart = this.store.let(getCalculatedCartList());
+
+        let toast = this.toastCtrl.create({
+          message: 'Item was added successfully',
+          duration: 1000
+        });
+        toast.present();
+      
+    }, 300);
   }
 
   ionViewDidLoad() {

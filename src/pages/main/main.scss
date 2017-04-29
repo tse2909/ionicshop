@@ -1,3 +1,17 @@
 page-main {
 
+    .list-md{
+        margin : 0;
+    }
+    .list-ios{
+        margin : 0;
+    }
+    .item-md{
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+ion-item[submenu-item] {
+    padding-left: 25px; // maybe margin-left would work better to move the border as well
+    color: #000;
+  }
 }
